@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h4>Stock Valuation</h4>
+        <form class="mb-2">
+            <div class="form-group">
+                <label for="symbol">Stock symbol</label>
+                <div class="input-group mb-3">
+                    <input type="text" id="symbol" class="form-control" placeholder="VND" aria-label="Stock symbol" aria-describedby="btnGetData">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="btnGetData">Get Data</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="netProfit">Net Profit (5 quarters)</label>
+                <input type="text" class="form-control" id="netProfit" aria-describedby="netProfitHelp" placeholder="1.01;20.02;300.03;4000.04;50000.05">
+                <small id="netProfitHelp" class="form-text text-muted">Split by ';'</small>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label for="sharesOutstanding">Shares Outstanding</label>
+                    <input type="number" class="form-control" id="sharesOutstanding" aria-describedby="Shares Outstanding" placeholder="100000000">
+                </div>
+
+                <div class="form-group col-6">
+                    <label for="unit">Unit (profit):</label>
+                    <select class="form-control" id="unit">
+                        <option value="1000">1000</option>
+                        <option value="1000000" selected>1.000.000</option>
+                        <option value="1000000000">1.000.000.000</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-6">
+                    <label for="pe">P/E</label>
+                    <input type="number" class="form-control" id="pe" placeholder="0">
+                </div>
+                <div class="form-group col-6">
+                    <label for="industryPe">Industry P/E</label>
+                    <input type="number" class="form-control" id="industryPe" aria-describedby="industryPeRef" placeholder="0">
+                    <small id="industryPeRef" class="form-text text-muted">
+                        <a href="https://www.stockbiz.vn/Industries.aspx" target="_blank">www.stockbiz.vn/Industries</a>
+                    </small>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="button" id="btnCalcData">Calculate</button>
+            <button class="btn btn-outline-primary" type="reset" id="btnResetData">Reset</button>
+        </form>
+        <table class="table table-sm">
+            <caption>List of lastest calculations</caption>
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Low (price)</th>
+                    <th>High (price)</th>
+                </tr>
+            </thead>
+            <tbody id="history"></tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
